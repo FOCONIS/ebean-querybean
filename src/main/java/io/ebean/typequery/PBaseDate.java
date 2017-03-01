@@ -6,7 +6,7 @@ package io.ebean.typequery;
  * @param <R> the root query bean type
  * @param <D> the date time type
  */
-public abstract class PBaseDate<R, D extends Comparable<?>> extends PBaseCompareable<R, D> {
+public abstract class PBaseDate<R, D extends Comparable> extends PBaseCompareable<R, D> {
 
   /**
    * Construct with a property name and root instance.
