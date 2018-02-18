@@ -4,11 +4,7 @@
 
   <groupId>io.ebean</groupId>
   <artifactId>ebean-querybean</artifactId>
-<<<<<<< HEAD
-  <version>10.3.2-FOC1</version>
-=======
   <version>11.1.1-FOC1-SNAPSHOT</version>
->>>>>>> e300f7e7c80d5033006fcd77e088b35360a0f6cf
 
   <parent>
     <groupId>org.avaje</groupId>
