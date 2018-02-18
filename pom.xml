@@ -4,7 +4,7 @@
 
   <groupId>io.ebean</groupId>
   <artifactId>ebean-querybean</artifactId>
-  <version>11.1.1-FOC1</version>
+  <version>11.1.1-FOC2-SNAPSHOT</version>
 
   <parent>
     <groupId>org.avaje</groupId>
@@ -14,7 +14,7 @@
 
   <scm>
     <developerConnection>scm:git:git@github.com:FOCONIS/ebean-querybean.git</developerConnection>
-    <tag>v11.1.1-FOC1</tag>
+    <tag>v10.3.2-FOC1</tag>
   </scm>
 
   <dependencies>
