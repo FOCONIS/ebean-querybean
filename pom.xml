@@ -4,7 +4,11 @@
 
   <groupId>io.ebean</groupId>
   <artifactId>ebean-querybean</artifactId>
+<<<<<<< HEAD
   <version>10.3.2-FOC1</version>
+=======
+  <version>11.1.1-FOC1-SNAPSHOT</version>
+>>>>>>> e300f7e7c80d5033006fcd77e088b35360a0f6cf
 
   <parent>
     <groupId>org.avaje</groupId>
@@ -23,7 +27,18 @@
     <dependency>
       <groupId>io.ebean</groupId>
       <artifactId>ebean</artifactId>
-      <version>10.3.2-FOC1</version>
+      <version>11.10.6-FOC1</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <!--
+    Class retention Nonnull and Nullable annotations
+    to assist with IDE auto-completion with Ebean API
+    -->
+    <dependency>
+      <groupId>io.ebean</groupId>
+      <artifactId>ebean-jsr305</artifactId>
+      <version>1.1</version>
       <scope>provided</scope>
     </dependency>
 
@@ -58,7 +73,7 @@
       <plugin>
         <groupId>io.ebean</groupId>
         <artifactId>ebean-maven-plugin</artifactId>
-        <version>10.1.1</version>
+        <version>11.9.2-FOC1</version>
         <executions>
           <!--   Not going to enhance Model bean -->
           <execution>

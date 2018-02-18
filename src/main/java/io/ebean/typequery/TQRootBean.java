@@ -20,8 +20,9 @@ import io.ebean.search.TextQueryString;
 import io.ebean.search.TextSimple;
 import io.ebean.text.PathProperties;
 import io.ebeaninternal.server.util.ArrayStack;
-import org.jetbrains.annotations.Nullable;
 
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import java.sql.Timestamp;
 import java.util.List;
 import java.util.Map;
@@ -156,6 +157,7 @@ public abstract class TQRootBean<T, R> {
    * the find methods available on this 'root query bean' instance like findList().
    * </p>
    */
+  @Nonnull
   public Query<T> query() {
     return query;
   }
@@ -370,15 +372,6 @@ public abstract class TQRootBean<T, R> {
    */
   public R asDraft() {
     query.asDraft();
-    return root;
-  }
-
-  /**
-   * Deprecated in favour of setIncludeSoftDeletes().
-   */
-  @Deprecated
-  public R includeSoftDeletes() {
-    query.setIncludeSoftDeletes();
     return root;
   }
 
@@ -611,7 +604,7 @@ public abstract class TQRootBean<T, R> {
    *
    * // Assuming sku is unique for products...
    *
-   * Map<?,Product> productMap =
+   * Map<String,Product> productMap =
    *     new QProduct()
    *     // use sku for keys...
    *     .setMapKey("sku")
@@ -1200,20 +1193,9 @@ public abstract class TQRootBean<T, R> {
   /**
    * Execute the query returning an optional bean.
    */
+  @Nonnull
   public Optional<T> findOneOrEmpty() {
     return query.findOneOrEmpty();
-  }
-
-  /**
-   * Synonym for findOne().
-   * <p>
-   * This proceeded findOne which was introduced to better match spring data.
-   * This will be deprecated at some future point.
-   * </p>
-   */
-  @Nullable
-  public T findUnique() {
-    return query.findOne();
   }
 
   /**
@@ -1233,6 +1215,7 @@ public abstract class TQRootBean<T, R> {
    *
    * @see EbeanServer#findList(Query, Transaction)
    */
+  @Nonnull
   public List<T> findList() {
     return query.findList();
   }
@@ -1245,6 +1228,7 @@ public abstract class TQRootBean<T, R> {
    *
    * @see EbeanServer#findIds(Query, Transaction)
    */
+  @Nonnull
   public <A> List<A> findIds() {
     return query.findIds();
   }
@@ -1270,6 +1254,7 @@ public abstract class TQRootBean<T, R> {
    *
    * @see EbeanServer#findMap(Query, Transaction)
    */
+  @Nonnull
   public <K> Map<K, T> findMap() {
     return query.findMap();
   }
@@ -1314,6 +1299,7 @@ public abstract class TQRootBean<T, R> {
    *
    * }</pre>
    */
+  @Nonnull
   public QueryIterator<T> findIterate() {
     return query.findIterate();
   }
@@ -1334,6 +1320,7 @@ public abstract class TQRootBean<T, R> {
    *
    * @return the list of values for the selected property
    */
+  @Nonnull
   public <A> List<A> findSingleAttributeList() {
     return query.findSingleAttributeList();
   }
@@ -1420,6 +1407,7 @@ public abstract class TQRootBean<T, R> {
    * It will execute the query against the history returning the versions of the bean.
    * </p>
    */
+  @Nonnull
   public List<Version<T>> findVersions() {
     return query.findVersions();
   }
@@ -1431,6 +1419,7 @@ public abstract class TQRootBean<T, R> {
    * It will execute the query against the history returning the versions of the bean.
    * </p>
    */
+  @Nonnull
   public List<Version<T>> findVersionsBetween(Timestamp start, Timestamp end) {
     return query.findVersionsBetween(start, end);
   }
@@ -1441,6 +1430,7 @@ public abstract class TQRootBean<T, R> {
    * This is the number of 'top level' or 'root level' entities.
    * </p>
    */
+  @Nonnull
   public int findCount() {
     return query.findCount();
   }
@@ -1455,6 +1445,7 @@ public abstract class TQRootBean<T, R> {
    *
    * @return a Future object for the row count query
    */
+  @Nonnull
   public FutureRowCount<T> findFutureCount() {
     return query.findFutureCount();
   }
@@ -1469,6 +1460,7 @@ public abstract class TQRootBean<T, R> {
    *
    * @return a Future object for the list of Id's
    */
+  @Nonnull
   public FutureIds<T> findFutureIds() {
     return query.findFutureIds();
   }
@@ -1482,6 +1474,7 @@ public abstract class TQRootBean<T, R> {
    *
    * @return a Future object for the list result of the query
    */
+  @Nonnull
   public FutureList<T> findFutureList() {
     return query.findFutureList();
   }
@@ -1514,6 +1507,7 @@ public abstract class TQRootBean<T, R> {
    *
    * @return The PagedList
    */
+  @Nonnull
   public PagedList<T> findPagedList() {
     return query.findPagedList();
   }
@@ -1546,6 +1540,7 @@ public abstract class TQRootBean<T, R> {
   /**
    * Return the type of beans being queried.
    */
+  @Nonnull
   public Class<T> getBeanType() {
     return query.getBeanType();
   }
@@ -1553,6 +1548,7 @@ public abstract class TQRootBean<T, R> {
   /**
    * Return the expression list that has been built for this query.
    */
+  @Nonnull
   public ExpressionList<T> getExpressionList() {
     return query.where();
   }
